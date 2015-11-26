@@ -49,7 +49,8 @@ module Fluent
       return if chunk.empty?
 
       error = nil
-
+  
+      @nodes << @nodes.shift
       @nodes.each do |node|
         begin
           send_data(node.client, chunk)
